@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoRider:A Rental Service</title>
+    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/x-icon" href="favicon3.png">
+    <link rel="stylesheet" href="../views/css/book.css">
+    <!-- <link rel="stylesheet" href="../views/css/"> -->
+	<link rel="stylesheet" href="./css/contact.css">
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap');
+:root {
+  /* Colors
+    ____________________*/
+  --color-primary: #13a3ea;
+  --color-text: #f4ecec;
+  --ff-body: 'Space Grotesk', sans-serif;
+  /* font sizes */
+
+  --fs-sm: 1.4rem;
+  --fs-md: 1.6rem;
+  --fs-lg: 2rem;
+  --fs-xl: 2.4rem;
+  --fs-xxl: 3.2rem;
+  --fs-biggest: clamp(3rem, 8vw, 5rem);
+  /* font weight */
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  /* z-index
+    ___________________*/
+  --zindex-menu: 1000;
+  --zindex-fixed: 1010;
+
+  /* With & Height 
+    ------------------*/
+  --width-container: 98rem;
+  --height-header: 10rem;
+  --height-header--scroll: 8rem;
+
+  /* Transition and box shadow*/
+  --transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  --box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* CSS Reset
+  --------------------------------------------------------------*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+main {
+  overflow: hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  color: #f2f5f7;
+  font-family: sans-serif;
+  letter-spacing: 1px;
+  font-weight: 300;
+}
+body {
+  overflow-x: hidden;
+}
+nav {
+  height: 6rem;
+  width: 100vw;
+  background-color: #131418;
+  background-color: #455ac3;
+
+  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  position: fixed;
+  z-index: 10;
+}
+
+/*Styling logo*/
+.logo {
+  /* padding:1vh 1vw; */
+  padding-left: 10px;
+  text-align: center;
+}
+.logo img {
+  height: 6rem;
+  width: rem;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+/*Styling Links*/
+.nav-links {
+  display: flex;
+  list-style: none;
+  width: 88vw;
+  padding: 0 0.7vw;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+}
+.nav-links li a {
+  text-decoration: none;
+  margin: 0 0.7vw;
+}
+
+.nav-links li {
+  position: relative;
+}
+
+.nav-links li a:hover::before {
+  width: 80%;
+}
+
+/*Styling Buttons*/
+.login-button {
+  background-color: transparent;
+  border: 1.5px solid #f2f5f7;
+  border-radius: 2em;
+  padding: 0.6rem 0.8rem;
+  margin-left: 2vw;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.login-button:hover {
+  color: #131418;
+  background-color: #f2f5f7;
+  border: 1.5px solid #f2f5f7;
+  transition: all ease-in-out 350ms;
+}
+.join-button {
+  color: #131418;
+  background-color: #61dafb;
+  border: 1.5px solid #61dafb;
+  border-radius: 2em;
+  padding: 0.6rem 0.8rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.join-button:hover {
+  color: #f2f5f7;
+  background-color: transparent;
+  border: 1.5px solid #f2f5f7;
+  transition: all ease-in-out 350ms;
+}
+
+/*Styling Hamburger Icon*/
+.hamburger div {
+  width: 30px;
+  height: 3px;
+  background: #ffffff;
+  margin: 5px;
+  transition: all 0.3s ease;
+}
+.hamburger {
+  display: none;
+}
+
+/*Stying for small screens*/
+@media screen and (max-width: 800px) {
+  nav {
+    position: fixed;
+    z-index: 3;
+  }
+  .hamburger {
+    display: block;
+    position: absolute;
+    cursor: pointer;
+    right: 5%;
+    top: 50%;
+    transform: translate(-5%, -50%);
+    z-index: 2;
+    transition: all 0.7s ease;
+  }
+  .nav-links {
+    position: fixed;
+    background: #131418;
+    height: 100vh;
+    width: 100%;
+    flex-direction: column;
+    clip-path: circle(50px at 90% -20%);
+    -webkit-clip-path: circle(50px at 90% -10%);
+    transition: all 1s ease-out;
+    pointer-events: none;
+  }
+  .nav-links.open {
+    clip-path: circle(1000px at 90% -10%);
+    -webkit-clip-path: circle(1000px at 90% -10%);
+    pointer-events: all;
+  }
+  .nav-links li {
+    opacity: 0;
+  }
+  .nav-links li:nth-child(1) {
+    transition: all 0.5s ease 0.2s;
+  }
+  .nav-links li:nth-child(2) {
+    transition: all 0.5s ease 0.4s;
+  }
+  .nav-links li:nth-child(3) {
+    transition: all 0.5s ease 0.6s;
+  }
+  .nav-links li:nth-child(4) {
+    transition: all 0.5s ease 0.7s;
+  }
+  .nav-links li:nth-child(5) {
+    transition: all 0.5s ease 0.8s;
+  }
+  .nav-links li:nth-child(6) {
+    transition: all 0.5s ease 0.9s;
+    margin: 0;
+  }
+  .nav-links li:nth-child(7) {
+    transition: all 0.5s ease 1s;
+    margin: 0;
+  }
+  li.fade {
+    opacity: 1;
+  }
+}
+
+/*Animating Hamburger Icon on Click*/
+.toggle .line1 {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+.toggle .line2 {
+  transition: all 0.7s ease;
+  width: 0;
+}
+.toggle .line3 {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* home screen */
+#section-hero {
+  background-color: var(--secondary-colour);
+  /* padding: 3.2rem 0 6.4rem 0; */
+}
+.hero {
+  max-width: 150rem;
+  margin: 0px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 5rem;
+  column-gap: 5rem;
+  background-color: whitesmoke;
+  padding: 1% 7%;
+  align-items: center;
+}
+
+.hero-left {
+  padding: 1.2rem 0.75rem;
+}
+
+.hero-description {
+  font-size: 20px;
+  line-height: 1.15;
+  margin-bottom: 4.4rem;
+  color: black;
+}
+.hero-left button a {
+  font-size: 2rem;
+  color: rgb(0, 0, 0);
+}
+.heading-primary {
+  margin-bottom: 2.4rem;
+  height: 50px;
+}
+.hero-left h1 {
+  font-size: 30px;
+}
+
+/* CSS */
+.button-85 {
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-85:before {
+  content: '';
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  /* animation: glowing-button-85 20s linear infinite; */
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.button-85:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+:root {
+  --red: hsl(0, 78%, 62%);
+  --cyan: hsl(180, 62%, 55%);
+  --orange: hsl(34, 97%, 64%);
+  --blue: hsl(212, 86%, 64%);
+  --varyDarkBlue: hsl(234, 12%, 34%);
+  --grayishBlue: hsl(229, 6%, 66%);
+  --veryLightGray: hsl(0, 0%, 98%);
+  --weight1: 200;
+  --weight2: 400;
+  --weight3: 600;
+}
+
+body {
+  font-size: 15px;
+  font-family: 'Poppins', sans-serif;
+  background-color: whitesmoke;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+h1:first-of-type {
+  font-weight: var(--weight1);
+  color: var(--varyDarkBlue);
+}
+
+h1:last-of-type {
+  color: var(--varyDarkBlue);
+}
+
+@media (max-width: 400px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+}
+.box p {
+  color: var(--grayishBlue);
+}
+
+.box {
+  border-radius: 5px;
+  box-shadow: 0px 30px 40px -20px var(--grayishBlue);
+  padding: 30px;
+  margin: 20px;
+}
+
+img {
+  float: right;
+}
+
+@media (max-width: 450px) {
+  .box {
+    height: 200px;
+  }
+}
+
+@media (max-width: 950px) and (min-width: 450px) {
+  .box {
+    text-align: center;
+    height: 180px;
+  }
+}
+
+.cyan {
+  border-top: 3px solid var(--cyan);
+}
+.red {
+  border-top: 3px solid var(--red);
+}
+.blue {
+  border-top: 3px solid var(--blue);
+}
+.orange {
+  border-top: 3px solid var(--orange);
+}
+
+h2 {
+  color: var(--varyDarkBlue);
+  font-weight: var(--weight3);
+}
+
+@media (min-width: 950px) {
+  .row1-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .row2-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .box-down {
+    position: relative;
+    top: 150px;
+  }
+  .box {
+    width: 20%;
+  }
+  .header p {
+    width: 30%;
+  }
+}
+
+:root {
+  --primary-text-col: #333;
+  --secondary-text-col: #555;
+  --head-text-size: 5.2rem;
+  --desc-text-size: 2rem;
+  --primary-colour: #e78a38;
+  --secondary-colour: #fdf2e9;
+  --main-font-family: 'Rubik', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@media (max-width: 81em) {
+  .heading-primary {
+    font-size: 4.4rem;
+  }
+
+  .hero-description {
+    font-size: 1.6rem;
+  }
+}
+
+/**********************************/
+/* Tablets Queries (landscape) */
+/**********************************/
+
+@media (max-width: 75em) {
+  html {
+    font-size: 53%;
+  }
+
+  .heading-steps {
+    font-size: 3.6rem;
+  }
+  .step-number {
+    font-size: 6.4rem;
+  }
+
+  .main-nav-list {
+    gap: 3.2rem;
+  }
+}
+
+/**********************************/
+/* Tablets Queries (potrait) */
+/**********************************/
+
+@media (max-width: 58em) {
+  html {
+    font-size: 45%;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 0 6rem;
+  }
+
+  .hero-img {
+    width: 50%;
+  }
+
+  .hero-left,
+  .hero-right {
+    text-align: center;
+  }
+}
+
+.box-down img {
+  height: 100px;
+}
+.red img {
+  height: 100px;
+}
+
+
+
+.testmonials {
+  margin-top: 130px;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.card h3{
+  font-size: 23px;
+  margin-bottom: 13px;
+}
+.card {
+  max-width: 300px;
+  min-height: 250px;
+  background: #bec6c3;
+  padding: 30px;
+  border-radius: 3px;
+  box-sizing: border-box;
+  color: #000000;
+  margin: 20px;
+  box-shadow: rgba(20, 20, 20, 0.55) 0px 30px 60px -12px,
+    rgb(0 0 0 / 30%) 0px 18px 36px -18px;
+    margin-top:70px;
+}
+.card:nth-child(2) {
+  background: #4181ee;
+}
+.card:last-child {
+  background: #673ab7;
+}
+.card-title {
+  margin-top: 0;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+}
+.card-content {
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  line-height: 1.5;
+}
+.card-btn {
+  all: unset;
+  display: block;
+  margin-left: auto;
+  border: 2px solid #fff;
+  padding: 10px 15px;
+  border-radius: 25px;
+  font-size: 10px;
+  font-weight: 600;
+  transition: all 0.5s;
+  cursor: pointer;
+  letter-spacing: 1.2px;
+  margin-bottom: 0;
+}
+.card-btn:hover {
+  color: #02b875;
+  background: #fff;
+}
+.card:nth-child(2) .card-btn:hover {
+  color: #4181ee;
+  background: #fff;
+}
+.card:last-child .card-btn:hover {
+  color: #673ab7;
+  background: #fff;
+}
+
+
+.testmonials .h1{
+  text-align: center;
+  font-family: sans-serif;
+  font-weight: 1000;
+  /* margin-top: 70px; */
+  /* background-color: red; */
+}
+
+@media (min-width:668px) {
+  .testmonials h1{
+    text-align: center;
+  }
+}
+
+
+
+
+
+
+
+
+.vehicle-collection {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-top: 90px;
+    margin-bottom: 90px;
+  }
+  
+  .collection-description {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  .collection-images {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .vehicle {
+    margin: 10px;
+    text-align: center;
+  }
+  
+  .vehicle img {
+    /* width: 100%; */
+    width: 170px;
+    height: auto;
+    height: 130px;
+    border-radius: 15px;
+  }
+  
+  .vehicle button.rate {
+    display: block;
+    margin-top: 10px;
+    padding: 10px;
+    /* background-color: #008080;
+    color: #fff; */
+    color: black;
+    background-color: rgb(235, 234, 234);
+    
+    border: none;
+    border-radius:50px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  .vehicle button.rate:hover{
+       background-color: #455AC3;
+    color: #fff;
+  }
+  
+  .cart-rate {
+    font-family: 'Racing Sans One', cursive;
+
+  }
+  @media (max-width: 768px) {
+    .vehicle-collection {
+      flex-direction: column;
+    }
+    
+    .collection-images {
+      margin-top: 20px;
+    }
+  }
+
+
+  *{
+    margin: 0;
+    padding: 0;
+    color: black;
+
+}
+.bookh1{
+    text-align: center;
+    margin-top: 70px;
+    margin-bottom: 30px;
+    
+}
+.bookContainer{
+    height: 510px;
+    background-color: rgb(255, 255, 255);
+    width: 500px;
+    border: 1px solid;
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    /* margin-top: 12%; */
+    border: 1px solid white;
+    border-radius: 5px;
+
+    box-shadow:
+  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 12.5px 10px rgba(0, 0, 0, 0.06),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+  0 100px 80px rgba(0, 0, 0, 0.12);
+}
+
+.form{
+    padding-top: 5%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 10px;
+    justify-content: center;
+    text-align: center;
+    font-weight: 1000;
+    /* padding: 50px; */
+
+}
+input{
+    width: 50%;
+    height: 40px;
+    /* border: 1px solid; */
+    border-radius: 8px;
+    text-align: center;
+    margin: 10px;
+}
+.inputbtn{
+    width: 100px;
+}
+.fileinput input{
+    background-color: whitesmoke;
+    height: 22px;
+    width: 200px;
+    margin-top: 15px;
+}
+
+.vehcollection img{
+    width: 100%;
+    height: 400px;
+}
+
+ 
+
+
+
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+.footer p {
+  background-color: #455ac3;
+  text-align: center;
+  height: 80px;
+  margin-top: 120px;
+  padding: 50px;
+}
+
+hr.hrtag{
+  margin-top: 15px;
+  border: 2px solid #455AC3;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+  margin-left: 40%;
+}
+	</style>
+
+</head>
+<body >
+      <nav>
+        <div class="logo">
+            <img src="../img/logo7.png" alt="Logo Image">
+        </div>
+        <div class="hamburger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#pricing1">Services</a></li>
+            <li><a href="#testmonials">Book Now</a></li>
+            <li><a href="../about/about.html">About</a></li>
+            <li><a href="../views/contact.html">Contact Us</a></li>
+            <li><button class="login-button" href="#">Login</button></li>
+            <!-- <li><button class="join-button" href="#">Join</button></li> -->
+        </ul>
+    </nav>
+<section id="section-hero">
+    <div class="hero">
+      <div class="hero-left">
+        <h1 class="heading-primary" style="text-align: center; font-weight: 1000; font-size: 30px;"><h1>Let's Start Your Adventure</h1>
+        <p class="hero-description" style=" margin-top:20px; font-size: 20px;">
+          Welcome to
+          , Discover your next adventure with GoRider Rentals. We offer a wide variety of vehicles, including cars, e-cycles, and motorcycles, to help you explore the open road. Book your rental today and start your adventure!
+        </p>
+        <button class="button-85" role="button">Explore Now &#x2193;</button>
+
+        
+      </div>
+      <div class="hero-right">
+        <img
+          src="../img/phot_card-no-bg.png"
+          alt="bike rental, A3 Rental Service photo card."
+          class="hero-img"
+        />
+      </div>
+    </div>
+  </section>
+
+<section class="pricing1" style="height:600px; margin-top:50px;">
+  <h1 style="text-align:center; font-weight:800; margin-top:90px;">Our Services</h1>
+  <hr class="hrtag">
+  <div class="row1-container">
+    <div class="box box-down cyan">
+      <h2>Bike</h2>
+      <p>We offer bicycles for rent, often for recreational purposes or for exploring a new area.</p>
+      <img src="../img/bike2.png" alt="bike" style="margin-top:13px;">
+    </div>
+
+    <div class="box red">
+      <h2>Cycle</h2>
+      <p>We offer electric bicycles (e-cycles) for rent, allowing customers to enjoy a more environmentally-friendly mode of transportation.</p>
+      <img src="../img/cycle1.png" alt="">
+
+    </div>
+
+    <div class="box box-down blue">
+      <h2>Car</h2>
+      <p>We offer a wide range of vehicles, from compact cars to luxury vehicles, for customers to rent for a specified period of time.</p>
+      <img src="../img/car1.png" alt="">
+
+    </div>
+  </div>
+  </section>
+
+  <section class="testmonials">
+
+    <h1 class="h1" style="text-align: center; color: #000000; font-weight: 700;">How to Book Your First Ride</h1>
+    <hr class="hrtag">
+<div class="wrapper">
+<div class="card" style="background-color: rgb(121, 138, 205);">
+	<h3 class="card-title">1. Select Your City</h3>
+		<p class="card-content">Never again worry about money when thinking of going for a long drive. Open GoRider Website, select your city and get to choose your bike from a vast variety of vehicle GoRider has</p>
+		<button class="card-btn">READ MORE</button>
+	</div>
+	<div class="card" style="background-color: rgb(121, 138, 205);">
+		<h3 class="card-title">2. Choose Vehicle Type</h3>
+		<p class="card-content">With a fleet of reliable and well-maintained bikes, and convenient pickup and drop-off locations, GoRider makes it easy for riders to navigate the bustling streets of the urban landscape. Choose a bike which suits your mood from the vast variety of GoRider vehicle colletion.</p>
+		<button class="card-btn">READ MORE</button>
+	</div>
+	<div class="card" style="background-color: rgb(121, 138, 205);"">
+		<h3 class="card-title">3. Add Your Personal Details</h3>
+		<p class="card-content">We need your personal details like name, email, phone number, city, start destination, end destination and for how many hours, day etc</p>
+		<button class="card-btn">READ MORE</button>
+	</div>
+  <div class="card" style="background-color: rgb(121, 138, 205);">
+	<h3 class="card-title">4. Select your subscription plan</h3>
+		<p class="card-content">GoRider subscription service is designed for people who want the convenience and flexibility of using a vehicle without the commitment of owning one. With GoRider, customers can easily rent a bike at one of their rental locations.</p>
+		<button class="card-btn">READ MORE</button>
+	</div>
+</div>
+  </section>
+
+
+
+  <section class="vehicle-collection">
+    <div class="collection-description">
+      <h1 style="text-align: center; font-weight: 700; font-size: 30px;">Vehicle Renting Collection</h1>
+      <p style="margin:20px 50px 50px 50px;  font-size: 20px;">Looking to rent a vehicle for your next adventure? Our collection features a wide range of cars, bikes, and bicycles to suit your needs. Choose from daily, weekly, or monthly rental options.</p>
+    </div>
+    <div class="collection-images">
+      <a href="https://imaman.netlify.app">
+      <div class="vehicle">
+        <img src="../img/car2.jpg" alt="Car">
+        <div class="cart-rate">Rs 800/h</div>
+      </div>
+    </a>
+    <a href="#booking">
+
+      <div class="vehicle">
+        <img src="../img/car3.jpg" alt="SUV">
+        <div class="cart-rate">Rs 750/h</div>
+      </div>
+      </a>
+      <a href="#booking">
+
+      <div class="vehicle">
+        <img src="../img/car1.png" alt="Car">
+        <div class="cart-rate">Rs 600/h</div>
+      </div>
+      </a>
+      <a href="#booking">
+
+      <div class="vehicle">
+        <img src="../img/bike1.png" alt="SUV">
+        <div class="cart-rate">Rs 300/h</div>
+      </div>
+      </a>
+      <a href="#booking">
+
+      <div class="vehicle">
+        <img src="../img/bike2.png" alt="SUV">
+        <div class="cart-rate">Rs 300/h</div>
+
+      </div>
+      </a>
+      <a href="#booking">
+
+      <div class="vehicle">
+        <img src="../img/bike4.jpg" alt="Truck">
+        <div class="cart-rate">Rs 280/h</div>
+
+      </div>
+      </a>
+      <a href="#booking">
+
+      <div class="vehicle">
+        <img src="../img/cycle1.png" alt="Sports Car">
+        <div class="cart-rate">Rs 100/h</div>
+
+      </div>
+      </a>
+      <a href="#booking">
+
+      <div class="vehicle">
+        <img src="../img/cycle2.jpg" alt="Motorcycle">
+        <div class="cart-rate">Rs 100/h</div>
+
+      </div>
+      </a>
+      <a href="#booking">
+
+      <div class="vehicle">
+        <img src="../img/cycle3.jpg" alt="Scooter">
+        <div class="cart-rate">Rs 100/h</div>
+
+      </div>
+      </a>
+    </div>
+  </section>
+  <section class="booking">
+    <div class="bookh1">
+
+        <h1 style="font-weight: 700;">Book your Ride</h1>
+        <hr class="hrtag">
+    </div>
+    <div class="bookContainer">
+        <form action="GET" onclick="ObBook()" class="form">
+            <label for="state">Start Date</label>
+            <input type="date" name="sdate" placeholder="Start Date">
+            <label for="stime">Start Time</label>
+            <input type="time" name="stime" placeholder="Start Time">
+            <label for="edate">End Date</label>
+            <input type="date" name="edate" placeholder="End Date">
+            <label for="etime">End Time</label>
+            <input type="time" name="etime" placeholder="End Time">
+            <label for="file">Upload Your Driving License</label>
+            <div class="fileinput">
+
+              <input type="file" name="file">
+            </div>
+            <input type="button" value="Book Now" style="background-color: #455AC3; color: white;" class="inputbtn">
+        </form>
+
+    </div>
+  </section>
+  <section class="contact">
+
+    <div class="container">
+        <div class="content">
+          <div class="left-side">
+            <div class="address details" >
+              <i class="fas fa-map-marker-alt"></i>
+              <div class="topic" style="color:#9da0b9;">Address</div>
+              <div class="text-one"style="color:#9da0b9;">Greater Noida</div>
+              <div class="text-two"style="color:#9da0b9;">Uttar Pradesh</div>
+            </div>
+            <div class="phone details">
+              <i class="fas fa-phone-alt"></i>
+              <div class="topic" style="color:#9da0b9;">Phone</div>
+              <div class="text-two">+91 9554022978</div>
+              <div class="text-one">+91 8604607826</div>
+              <div class="text-three">+91 9559096759</div>
+            </div>
+            <div class="email details">
+              <i class="fas fa-envelope"></i>
+              <div class="topic"style="color:#9da0b9;">Email</div>
+              <div class="text-one">go.rider@gmail.com</div>
+              <div class="text-two">gorider.help@gmail.com</div>
+            </div>
+          </div>
+          <div class="right-side">
+            <div class="topic-text">Send us a message</div>
+            <p>If you have any query just feel free to contact us our team will contact you within 24 hours.</p>
+          <form action="#">
+            <div class="input-box">
+              <input type="text" placeholder="Enter your name" autocomplete="off" required>
+            </div>
+            <div class="input-box">
+              <input type="text" placeholder="Enter your email" autocomplete="off" required style="color:#9da0b9;">
+            </div>
+            <div class="input-box">
+              <input type="tel" placeholder="Enter your phone number" autocomplete="off" required>
+            </div>
+            <div class="input-box message-box">
+              
+            </div>
+            <div id="button">
+              <input type="button" value="Send Now" >
+            </div>
+          </form>
+        </div>
+        </div>
+      </div>
+      </section>
+
+  <sction class="footer">
+    <p>Copyright &copy; 2023 GoRider</p> 
+  </sction>
+  <script src="script.js"></script>
+  </body>
+  <script>
+	function validateForm() {
+  const startDate = document.querySelector('#startDate').value;
+  const startTime = document.querySelector('#startTime').value;
+  const endDate = document.querySelector('#endDate').value;
+  const endTime = document.querySelector('#endTime').value;
+
+  if (
+    startDate === '' ||
+    startTime === '' ||
+    endDate === '' ||
+    endTime === ''
+  ) {
+    alert('All fields are required');
+    return false;
+  }
+
+  if (startDate > endDate) {
+    alert('Start date should be before end date');
+    return false;
+  }
+
+  if (startDate === endDate && startTime >= endTime) {
+    alert('Start time should be before end time');
+    return false;
+  }
+
+  return true;
+}
+
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+const links = document.querySelectorAll('.nav-links li');
+
+hamburger.addEventListener('click', () => {
+  //Animate Links
+  navLinks.classList.toggle('open');
+  links.forEach((link) => {
+    link.classList.toggle('fade');
+  });
+
+  //Hamburger Animation
+  hamburger.classList.toggle('toggle');
+});
+
+  </script>
+</html>
