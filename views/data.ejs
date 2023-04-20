@@ -41,8 +41,9 @@
 <section id="section-hero">
     <div class="hero">
       <div class="hero-left">
-        <h1 class="heading-primary" style="text-align: center; font-weight: 1000; font-size: 30px;"><h1>Let's Start Your Adventure</h1>
-        <p class="hero-description" style=" margin-top:20px; font-size: 20px;">
+
+        <h1 class="heading-primary" style="text-align: center; font-weight: 1000; font-size: 30px;"><h1 id="heading">Let's Start Your Adventure</h1>
+        <p class="hero-description" style=" margin-top:20px; font-size: 20px;" id="subheading">
           Welcome to
           , Discover your next adventure with GoRider Rentals. We offer a wide variety of vehicles, including cars, e-cycles, and motorcycles, to help you explore the open road. Book your rental today and start your adventure!
         </p>
@@ -191,6 +192,9 @@
       </a>
     </div>
   </section>
+
+
+  
   
   <section class="booking" id="booking">
     <div class="bookh1">
@@ -213,7 +217,7 @@
 
               <input type="file" name="file">
             </div>
-            <input type="button" value="Book Now" style="background-color: #455AC3; color: white;" class="inputbtn">
+            <input type="button" value="Book Now" class="inputbtn" id="inputbtn">
         </form>
 
     </div>
@@ -256,17 +260,6 @@
         <a href="#" class="teama">Contact me</a>
     </div>
 </section>
-
-
-
-
-
-
-
-
-
-
-
   <section class="contact" id="contact">
 
     <div class="container">
@@ -369,6 +362,86 @@ hamburger.addEventListener('click', () => {
   //Hamburger Animation
   hamburger.classList.toggle('toggle');
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Define the text that will be used for the animation
+var texts = [
+  { heading: "Rent a Car Today", subheading: "Get the Best Deals on Rental Cars" },
+  { heading: "Explore New Places", subheading: "Find the Perfect Car for Your Next Adventure" },
+  { heading: "Travel in Style", subheading: "Book Your Rental Car Today and Save Your Valuable Time And Money" }
+];
+
+// Get the heading and subheading elements
+var heading = document.getElementById("heading");
+var subheading = document.getElementById("subheading");
+
+// Set the index of the current text
+var currentTextIndex = 0;
+
+// Start the animation
+setInterval(function() {
+  // Get the current text
+  var currentText = texts[currentTextIndex];
+
+  // Split the heading and subheading text into arrays of words
+  var headingWords = currentText.heading.split(" ");
+  var subheadingWords = currentText.subheading.split(" ");
+
+  // Clear the heading and subheading text
+  heading.innerHTML = "";
+  subheading.innerHTML = "";
+
+  // Print each word in the heading and subheading with a delay of 100 milliseconds
+  for (var i = 0; i < headingWords.length; i++) {
+    setTimeout(function(word) {
+      heading.innerHTML += word + " ";
+    }, i * 100, headingWords[i]);
+  }
+
+  for (var i = 0; i < subheadingWords.length; i++) {
+    setTimeout(function(word) {
+      subheading.innerHTML += word + " ";
+    }, i * 100, subheadingWords[i]);
+  }
+
+  // Increment the current text index and reset it to 0 if it exceeds the number of texts
+  currentTextIndex++;
+  if (currentTextIndex >= texts.length) {
+    currentTextIndex = 0;
+  }
+}, 5000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   </script>
 </html>

@@ -48,7 +48,7 @@
   }
   .content .left-side .details i{
     font-size: 30px;
-    color: #7ce1e1;
+    color: #FAA41A;
     margin-bottom: 10px;
   }
   .content .left-side .details .topic{
@@ -108,9 +108,23 @@
     cursor: pointer;
     transition: all 0.3s ease;
   }
+  #button input[type="button"]{
+    /* display: inline-block; */
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+  margin-left: 25%;
+
+  }
   #button input[type="button"]:hover{
-    background: #5029bc;
-    /* width: 200px; */
+    background-color: #fff;
+  color: #333;
+  transform: scale(1.1);
+  filter: brightness(80%);
   }
   
   @media (max-width: 950px) {
