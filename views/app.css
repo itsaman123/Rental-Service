@@ -116,6 +116,11 @@ nav {
   margin: 0 0.1vw;
   color: #000000;
   margin: 10px;
+  
+  
+}
+.nav-links li a:hover{
+  color: #e78a38;  
 }
 
 .nav-links li {
@@ -687,14 +692,54 @@ h2 {
   color: #000000;
 }
 
-hr.hrtag {
-  margin-top: 15px;
-  border: 2px solid #FAA41A;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  width: 20%;
-  margin-left: 40%;
+hr#hrtagServices {
+  
+  height: 5px;
+  width: 14%;
+  background-color: #FAA41A;
+  border: none;
+  margin: 20px auto;
+}
+@media (max-width:667px) {
+  hr#hrtagServices {
+    width: 30%;
+  }
+}
+hr#hrtagHowto {
+  height: 5px;
+  width: 28%;
+  background-color: #FAA41A;
+  border: none;
+  margin: 20px auto;
+}
+@media (max-width:667px) {
+  hr#hrtagHowto {
+    width: 50%;
+  }
+}
+hr#hrtagBooking {
+  height: 5px;
+  width: 14%;
+  background-color: #FAA41A;
+  border: none;
+  margin: 20px auto;
+}
+@media (max-width:667px) {
+  hr#hrtagBooking {
+    width: 30%;
+  }
+}
+hr#hrtagAbout {
+  height: 5px;
+  width: 14%;
+  background-color: #FAA41A;
+  border: none;
+  margin: 20px auto;
+}
+@media (max-width:667px) {
+  hr#hrtagAbout {
+    width: 30%;
+  }
 }
 
 nav {
@@ -827,7 +872,7 @@ h3 {
 
 .teamimg:hover {
   transform: scale(1.1);
-  filter: brightness(80%);
+  filter: brightness(120%);
 }
 @media (max-width:667px) {
   .team {
@@ -866,10 +911,22 @@ form #inputbtn{
   text-decoration: none;
   border-radius: 25px;
   transition: all 0.3s ease;
+   
+}
+.fileinput input{
+  background-color: red;
 }
 form #inputbtn:hover{
   background-color: #fff;
   color: #333;
   transform: scale(1.1);
   filter: brightness(80%);
+}
+
+.user_profile img{
+  border: 1px solid black;
+  border-radius: 50%;
+  height: 30px;
+  float: right;
+  margin-right: -112px;
 }
