@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var User = require('../models/user');
+const Book = require('../models/book')
 
 router.get('/', function (req, res, next) {
   return res.render('index.ejs');
@@ -145,7 +146,7 @@ router.post('/booking', async (req, res, next) => {
   try {
     var personInfor = req.body;
     console.log(personInfor);
-    var bookdetails = await new User({
+    var bookdetails = new Book({
       sdate: personInfor.sdate,
       stime: personInfor.username,
       edate: personInfor.edate,
