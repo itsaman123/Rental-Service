@@ -7,4 +7,4 @@
 
 `E-cycle rental services:` We offer electric bicycles (e-cycles) for rent, allowing customers to enjoy a more environmentally-friendly mode of transportation.
 
-<img width="926" alt="image" src="https://user-images.githubusercontent.com/84653396/227786177-13da9704-97c4-4328-ae61-3bb3acc7f13c.png">
+<img width="960" alt="image" src="https://user-images.githubusercontent.com/84653396/236312863-6e8c3f7c-73b9-4ba9-8e11-3e4749e8415c.png">
