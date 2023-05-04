@@ -8,9 +8,10 @@ var mongoose = require('mongoose');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 
-mongoose.connect(
-  'mongodb+srv://mamanmaurya49:BMljX5DoSqGix7Bi@cluster0.wo3g6i3.mongodb.net/Project',
-  {
+
+  mongoose.connect(
+    'mongodb+srv://mamanmaurya49:Aman@123@cluster0.tc4nvws.mongodb.net/mybooking',
+    {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   },
