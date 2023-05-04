@@ -32,16 +32,25 @@
         <ul class="nav-links">
             <li><a href="#">Home</a></li>
             <li><a href="#pricing1">Services</a></li>
-            <li><a href="./book.html">Book Now</a></li>
+            <li><a href="#booking">Book Now</a></li>
             <li><a href="#team">About</a></li>
             <!-- <li><a href="./about.html">About</a></li> -->
             <li><a href="#contact">Contact Us</a></li>
             <!-- <li><a href="" class="user_profile"><img src="./img/pngwing.com.png" alt=""></a></li> -->
-            <li><a href="./userdetails.ejs" class="user_profile"><img src="./img/pngwing.com.png" alt=""></a></li>
+            <!-- <li><a href="" id="show-details-btn" class="user_profile"><img src="./img/pngwing.com.png" alt=""></a></li> -->
+            <!-- <li id="show-details-btn" class="user_profile"><img src="./img/pngwing.com.png" alt=""></li> -->
 
             <!-- <li><button class="join-button" href="#">Join</button></li> -->
         </ul>
     </nav>
+
+
+
+
+
+
+
+    
 <section id="section-hero">
     <div class="hero">
       <div class="hero-left">
@@ -51,7 +60,9 @@
           Welcome to
           , Discover your next adventure with GoRider Rentals. We offer a wide variety of vehicles, including cars, e-cycles, and motorcycles, to help you explore the open road. Book your rental today and start your adventure!
         </p>
-        <button class="button-85" role="button">Explore Now &#x2193;</button>
+        <a href="#pricing1">
+          <button class="button-85" role="button" style="cursor:pointer;">Explore Now &#x2193;</button>
+        </a>
 
         
       </div>
@@ -127,7 +138,7 @@
       <p style="margin:20px 50px 50px 50px;  font-size: 20px;">Looking to rent a vehicle for your next adventure? Our collection features a wide range of cars, bikes, and bicycles to suit your needs. Choose from daily, weekly, or monthly rental options.</p>
     </div>
     <div class="collection-images">
-      <a href="https://imaman.netlify.app">
+      <a href="#booking">
       <div class="vehicle">
         <img src="../img/car2.jpg" alt="Car">
         <div class="cart-rate">Rs 800/h</div>
@@ -207,7 +218,7 @@
         <hr id="hrtagBooking">
     </div>
     <div class="bookContainer">
-        <form action="GET" onclick="ObBook()" class="form">
+        <form action="https://formspree.io/f/mpzebrlr" method="POST" onclick="validateForm()" class="form">
             <label for="state">Start Date</label>
             <input type="date" name="sdate" placeholder="Start Date">
             <label for="stime">Start Time</label>
@@ -221,7 +232,7 @@
 
               <input type="file" name="file" id="fileinput">
             </div>
-            <input type="button" value="Book Now" class="inputbtn" id="inputbtn">
+            <input type="submit" value="Book Now" class="inputbtn" id="inputbtn">
         </form>
 
     </div>
@@ -243,25 +254,25 @@
         <h3>Aman Maurya</h3>
         <p>MERN Stack Developer</p><br>
         
-        <a href="https://imaman.netlify.app/" class="teama">Contact me</a>
+        <a href="https://www.linkedin.com/in/aman-maurya-47b5131b5/" class="teama">Contact me</a>
     </div>
     <div class="member">
         <img src="./img/adi.jpg" alt="Developer 2" class="teamimg">
         <h3>Aditya Singh</h3>
         <p>Front-end Developer</p><br>
-        <a href="#" class="teama">Contact me</a>
+        <a href="https://www.linkedin.com/in/aditya-singh-76383221a/" class="teama">Contact me</a>
     </div>
     <div class="member">
         <img src="./img/ashu.jpg" alt="Developer 3" class="teamimg">
         <h3>Aashutosh Shukla</h3>
         <p>Front-end Developer</p><br>
-        <a href="#" class="teama">Contact me</a>
+        <a href="https://www.linkedin.com/in/ashutosh-shukla-66a0a120b/" class="teama">Contact me</a>
     </div>
     <div class="member">
         <img src="./img/abhinav.jpg" alt="Developer 4" class="teamimg">
         <h3>Abhinav Sheoran</h3>
         <p>Front-end Developer</p><br>
-        <a href="#" class="teama">Contact me</a>
+        <a href="https://www.linkedin.com/in/abhinav-sheoran-078b51223/" class="teama">Contact me</a>
     </div>
 </section>
 
@@ -296,24 +307,24 @@
           <div class="right-side">
             <div class="topic-text">Send us a message</div>
             <p>If you have any query just feel free to contact us our team will contact you within 24 hours.</p>
-          <form action="#">
+          <form action="https://formspree.io/f/mgebdlwd" method="post" >
             <div class="input-box">
-              <input type="text" placeholder="Enter your name" autocomplete="off" required>
+              <input type="text" name="name" placeholder="Enter your name" autocomplete="off" required>
             </div>
             <div class="input-box">
-              <input type="text" placeholder="Enter your email" autocomplete="off" required style="color:#9da0b9;">
+              <input type="text" name="email" placeholder="Enter your email" autocomplete="off" required style="color:#9da0b9;">
             </div>
             <div class="input-box">
-              <input type="tel" placeholder="Enter your phone number" autocomplete="off" required>
+              <input type="tel" name="phone" placeholder="Enter your phone number" autocomplete="off" required>
             </div>
             <div class="input-box">
-              <input type="text" placeholder="Type your message here" autocomplete="off" required>
+              <input type="text" name="message" placeholder="Type your message here" autocomplete="off" required>
             </div>
             <div class="input-box message-box">
               
             </div>
             <div id="button">
-              <input type="button" value="Send Now" >
+              <input type="submit" value="Send Now" >
             </div>
           </form>
         </div>
@@ -328,10 +339,10 @@
   </body>
   <script>
 	function validateForm() {
-  const startDate = document.querySelector('#startDate').value;
-  const startTime = document.querySelector('#startTime').value;
-  const endDate = document.querySelector('#endDate').value;
-  const endTime = document.querySelector('#endTime').value;
+  const startDate = document.querySelector('#sdate').value;
+  const startTime = document.querySelector('#stime').value;
+  const endDate = document.querySelector('#edate').value;
+  const endTime = document.querySelector('#etime').value;
 
   if (
     startDate === '' ||
@@ -374,16 +385,6 @@ hamburger.addEventListener('click', () => {
 
 
 
-
-
-
-
-
-
-
-
-
-
 // Define the text that will be used for the animation
 var texts = [
   { heading: "Rent a Car Today", subheading: "Get the Best Deals on Rental Cars" },
@@ -407,8 +408,7 @@ setInterval(function() {
   // Split the heading and subheading text into arrays of words
   var headingWords = currentText.heading.split(" ");
   var subheadingWords = currentText.subheading.split(" ");
-
-  // Clear the heading and subheading text
+ 
   heading.innerHTML = "";
   
 
@@ -418,43 +418,11 @@ setInterval(function() {
       heading.innerHTML += word + " ";
     }, i * 100, headingWords[i]);
   }
-
-  // for (var i = 0; i < subheadingWords.length; i++) {
-  //   setTimeout(function(word) {
-  //     subheading.innerHTML += word + " ";
-  //   }, i * 100, subheadingWords[i]);
-  // }
-
-  // Increment the current text index and reset it to 0 if it exceeds the number of texts
   currentTextIndex++;
   if (currentTextIndex >= texts.length) {
     currentTextIndex = 0;
   }
 }, 5000);
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-app.get('/userdetails', function(req, res) {
-  res.render('userdetails');
-});
-
-
-
 
   </script>
 </html>

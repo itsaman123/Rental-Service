@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="book.css">
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    color: black;
+
+}
+.bookh1{
+    text-align: center;
+    margin-top: 70px;
+    margin-bottom: 30px;
+    
+}
+.bookContainer{
+    height: 510px;
+    background-color: rgb(255, 255, 255);
+    width: 500px;
+    border: 1px solid;
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    /* margin-top: 12%; */
+    border: 1px solid white;
+    border-radius: 5px;
+
+    box-shadow:
+  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 12.5px 10px rgba(0, 0, 0, 0.06),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+  0 100px 80px rgba(0, 0, 0, 0.12);
+}
+
+.form{
+    padding-top: 5%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 10px;
+    justify-content: center;
+    text-align: center;
+    font-weight: 1000;
+    /* padding: 50px; */
+
+}
+input{
+    width: 50%;
+    height: 40px;
+    /* border: 1px solid; */
+    border-radius: 8px;
+    text-align: center;
+    margin: 10px;
+}
+.inputbtn{
+    width: 100px;
+}
+.fileinput input{
+    background-color: whitesmoke;
+    height: 22px;
+    width: 200px;
+    margin-top: 15px;
+}
+
+.vehcollection img{
+    width: 100%;
+    height: 400px;
+}
+    </style>
+</head>
+<body>
+    <section class="booking" id="booking">
+    <div class="bookh1">
+
+        <h1 style="font-weight: 700;">Book your Ride</h1>
+        <hr class="hrtag">
+    </div>
+    <div class="bookContainer">
+        <form action="https://submit-form.com/GD0juXhe" method="POST" onclick="ObBook()" class="form">
+            <label for="state">Start Date</label>
+            <input type="date" name="sdate" placeholder="Start Date">
+            <label for="stime">Start Time</label>
+            <input type="time" name="stime" placeholder="Start Time">
+            <label for="edate">End Date</label>
+            <input type="date" name="edate" placeholder="End Date">
+            <label for="etime">End Time</label>
+            <input type="time" name="etime" placeholder="End Time">
+            <label for="file">Upload Your Driving License</label>
+            <div class="fileinput">
+
+              <input type="file" name="file">
+            </div>
+            <!-- <input type="button" value="Book Now" style="background-color: #455AC3; color: white;" class="inputbtn"> -->
+            <input type="submit" value="Book Now" class="btn btn-success">
+        </form>
+
+    </div>
+  </section>
+</body>
+</html>
