@@ -7,7 +7,6 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
-// const route = require('./routes/index')
 
 mongoose.connect(
   'mongodb+srv://mamanmaurya49:BMljX5DoSqGix7Bi@cluster0.wo3g6i3.mongodb.net/Project',

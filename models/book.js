@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 const bookSchema = new mongoose.Schema({
   sdate: { 
     type: String, 
-    required: true 
+    required: true,
+    default:Date.now()
 },
   stime: { 
     type: Date, 
