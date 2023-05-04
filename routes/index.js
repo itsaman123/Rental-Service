@@ -1,14 +1,14 @@
 var express = require('express');
 var router = express.Router();
 var User = require('../models/user');
-const Book = require('../models/book')
+
 
 router.get('/', function (req, res, next) {
   return res.render('index.ejs');
 });
 
 router.post('/', function (req, res, next) {
-  console.log(req.body);
+  // console.log(req.body);
   var personInfo = req.body;
 
   if (
@@ -80,10 +80,10 @@ router.post('/login', function (req, res, next) {
 });
 
 router.get('/profile', function (req, res, next) {
-  console.log('profile');
+  // console.log('profile');
   User.findOne({ unique_id: req.session.userId }, function (err, data) {
-    console.log('data');
-    console.log(data);
+    // console.log('data');
+    // console.log(data);
     if (!data) {
       res.redirect('/');
     } else {
@@ -138,26 +138,6 @@ router.post('/forgetpass', function (req, res, next) {
   });
 });
 
-router.get('/booking', function (req, res, next) {
-  res.render('book.ejs');
-});
 
-router.post('/booking', async (req, res, next) => {
-  try {
-    var personInfor = req.body;
-    console.log(personInfor);
-    var bookdetails = new Book({
-      sdate: personInfor.sdate,
-      stime: personInfor.username,
-      edate: personInfor.edate,
-      etime: personInfor.etime,
-    });
-
-    await bookdetails.save();
-  } catch (err) {
-    console.log(err);
-  }
-  res.status(201).json({ bookdetails });
-});
 
 module.exports = router;
