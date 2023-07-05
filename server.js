@@ -7,17 +7,17 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
-
+const colors=require('colors');
 
   mongoose.connect(
-    'mongodb+srv://mamanmaurya49:Aman@123@cluster0.tc4nvws.mongodb.net/mybooking',
+    'mongodb://localhost:27017/BookingApp',
     {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   },
   (err) => {
     if (!err) {
-      console.log('MongoDB Connection Succeeded.');
+      console.log('MongoDB Connection Succeeded.'.bgGreen);
     } else {
       console.log('Error in DB connection : ' + err);
     }
@@ -66,5 +66,17 @@ app.use(function (err, req, res, next) {
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, function () {
-  console.log('Server is started on http://127.0.0.1:' + PORT);
+  console.log('Server is started on http://127.0.0.1:'.bgMagenta + PORT);
 });
+
+
+
+
+
+
+
+
+
+
+
+
