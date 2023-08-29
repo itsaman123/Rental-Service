@@ -9,8 +9,8 @@ We offer a wide range of vehicles, from compact cars to luxury vehicles, for cus
 We offer bicycles for rent, often for recreational purposes or for exploring a new area.
 
 
-## Cycle rental service:
-We offer electric bicycles (e-cycles) for rent, allowing customers to enjoy a more environmentally-friendly mode of transportation.
+## e-Cycle rental service:
+We offer electric bicycles (e-cycles) for rent, allowing customers to enjoy a more environmentally friendly mode of transportation.
 
 
 
